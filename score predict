@@ -1,0 +1,35 @@
+#include<stdio.h>
+int main(){
+char desired_grade[3];
+    float min_average, current_average, final_weight;
+    float target_score = 0.0;
+     printf("Enter desired grade> ");
+    scanf("%s", desired_grade);
+    printf("Enter minimum average required> ");
+    scanf("%f", &min_average);
+    printf("Enter current average in course> ");
+    scanf("%f", &current_average);
+    printf("Enter how much the final counts as a percentage of the course grade> ");
+    scanf("%f", &final_weight);
+     if (desired_grade[0] == 'A') {
+        target_score = 90.0;
+    } else if (desired_grade[0] == 'B') {
+        target_score = 80.0;
+    } else if (desired_grade[0] == 'C') {
+        target_score = 70.0;
+    } else if (desired_grade[0] == 'D') {
+        target_score = 60.0;
+    } else if (desired_grade[0] == 'F') {
+        target_score = 0.0;
+    } else {
+        printf("Invalid .\n");
+        return 1;
+    }
+     
+    float needed_score = (target_score - (current_average * (1 - final_weight / 100))) / (final_weight / 100);
+
+    
+    printf("You need a score of %.2f on the final to get a %s in the course.\n", needed_score, desired_grade);
+
+    return 0;
+}
